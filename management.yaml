@@ -1,0 +1,58 @@
+openapi: 3.0.3
+info:
+  title: Title
+  description: Title
+  version: 1.0.0
+servers:
+  - url: https://management.kep.com/
+paths:
+  /book/{bookId}:
+    get:
+      tags:
+      - book
+      description: "Book 상세 정보를 가져온다."
+      parameters:
+        - name: bookId
+          in: query
+          description: book id for quering detail
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/book'
+
+
+
+components:
+  schemas:
+    book:
+      type: object
+      properties:
+        bookId:
+          type: integer
+          format: int64
+        bookName:
+          type: string
+          description: book name
+        writer:
+          type: string
+          description: 북작가
+        company:
+          type: string
+          description: 출판사
+        status:
+          type: string
+          description: 책상태
+          enum:
+            - 최초등록
+            - 대출중
+            - 대출예약
+            - 수리중
+            - 대출가능

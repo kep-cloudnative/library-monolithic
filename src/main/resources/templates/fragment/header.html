@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<nav id="header" class="navbar navbar-inverse navbar-fixed-top" th:fragment="headerFragment">
+    <script>
+
+        var loginView = function(){
+            $.ajax({
+                crossOrigin: true,
+                url: "/login",
+                success: function(data){
+                    console.log("load login form");
+                    $("#contents").html(data);
+                }
+            })
+        }
+
+    </script>
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" >Library Management System</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li th:if="${session.authenticated} == 'false'">
+                    <a href="#" th:href="@{/login}" onclick="loginView();return false;">
+                        <span class="glyphicon-log-in" aria-hidden="true"></span>&nbsp;Login
+                    </a>
+                </li>
+                <li th:if="${session.authenticated} == 'true'">
+                    <a href="/logout" th:href="@{/logout}">
+                        <span class="glyphicon-log-out" aria-hidden="true"></span>&nbsp;Logout
+                    </a>
+                    <!--                    <a href="/logout" th:href="@{#}" onclick="$('#form').submit();">-->
+<!--                        <span class="glyphicon-log-out" aria-hidden="true"></span>&nbsp;Logout-->
+<!--                    </a>-->
+<!--                    <form style="visibility: hidden" id="form" method="post" th:action="@{/logout}"></form>-->
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>
+</html>
