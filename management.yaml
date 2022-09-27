@@ -28,8 +28,6 @@ paths:
                 items:
                   $ref: '#/components/schemas/book'
 
-
-
 components:
   schemas:
     book:

@@ -8,11 +8,11 @@
         <version>2.4.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.kep.cnp.sam</groupId>
-    <artifactId>management</artifactId>
+    <groupId>com.kep</groupId>
+    <artifactId>library-monolithic</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>management</name>
-    <description>management service for SAM</description>
+    <name>library-monolithic</name>
+    <description>management service for library</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
@@ -79,6 +79,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
             <optional>true</optional>
         </dependency>
 
@@ -172,7 +173,24 @@
                     </environmentVariables>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.2.2</version>
+                <configuration>
+                    <imageName>${project.artifactId}</imageName>
+                    <dockerDirectory>src/main/docker</dockerDirectory>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
         </plugins>
+
     </build>
 
 </project>
