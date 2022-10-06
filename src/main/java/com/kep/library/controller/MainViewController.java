@@ -30,6 +30,11 @@ public class MainViewController {
 
   @RequestMapping(value = "/")
   public String index(Model model, HttpSession session, @RequestHeader Map<String, Object> requestHeader) {
+
+    String[] searchTypes = {"도서명", "카테고리", "저자"};
+    model.addAttribute("searchTypes", searchTypes);
+    model.addAttribute("category", managementService.getCategoryList());
+
         /*
         if(null == session.getAttribute("authenticated")) {
             System.out.print("authenticated");
