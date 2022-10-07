@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/kep_layout}">
 
     <body>
-        <section th:fragment="content">
+        <section layout:fragment="content">
             <h2>도서 상세</h2>
             <div class="container">
                 <article class="detail">

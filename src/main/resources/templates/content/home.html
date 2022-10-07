@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/kep_layout}">
 
     <body>
-        <section th:fragment="content">
+        <section layout:fragment="content">
             <h2>추천 도서</h2>
             <div class="container">
                 <article class="item">
                     <div class="card">
                         <div class="bookCover">
-                            <img alt="" src="" width="100px" height="150px">
+                            <a href="detail.html" th:href="@{/detail}">
+                                <img alt="" src="" width="100px" height="150px">
+                            </a>
                         </div>
                         <div class="bookDesc">
                             <div class="bookTitle">DOMAIN DRIVEN DESIGN</div><br>
@@ -19,7 +23,9 @@
                 <article class="item">
                     <div class="card">
                         <div class="bookCover">
-                            <img alt="" src="" width="100px" height="150px">
+                            <a href="detail.html" th:href="@{/detail}">
+                                <img alt="" src="" width="100px" height="150px">
+                            </a>
                         </div>
                         <div class="bookDesc">
                             <div class="bookTitle">슬기로운KEP생활</div><br>
@@ -30,7 +36,9 @@
                 <article class="item">
                     <div class="card">
                         <div class="bookCover">
-                            <img alt="" src="" width="100px" height="150px">
+                            <a href="detail.html" th:href="@{/detail}">
+                                <img alt="" src="" width="100px" height="150px">
+                            </a>
                         </div>
                         <div class="bookDesc">
                             <div class="bookTitle">클라우드정복</div><br>
@@ -41,7 +49,9 @@
                 <article class="item">
                     <div class="card">
                         <div class="bookCover">
-                            <img alt="" src="" width="100px" height="150px">
+                            <a href="detail.html" th:href="@{/detail}">
+                                <img alt="" src="" width="100px" height="150px">
+                            </a>
                         </div>
                         <div class="bookDesc">
                             <div class="bookTitle">DOMAIN DRIVEN DESIGN</div><br>
@@ -52,7 +62,9 @@
                 <article class="item">
                     <div class="card">
                         <div class="bookCover">
-                            <img alt="" src="" width="100px" height="150px">
+                            <a href="detail.html" th:href="@{/detail}">
+                                <img alt="" src="" width="100px" height="150px">
+                            </a>
                         </div>
                         <div class="bookDesc">
                             <div class="bookTitle">슬기로운KEP생활</div><br>
@@ -63,7 +75,9 @@
                 <article class="item">
                     <div class="card">
                         <div class="bookCover">
-                            <img alt="" src="" width="100px" height="150px">
+                            <a href="detail.html" th:href="@{/detail}">
+                                <img alt="" src="" width="100px" height="150px">
+                            </a>
                         </div>
                         <div class="bookDesc">
                             <div class="bookTitle">클라우드정복</div><br>

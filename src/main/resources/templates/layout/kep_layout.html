@@ -6,9 +6,7 @@
     <body>
         <div class="wrap">
             <header th:replace="fragment/header :: headerFragment"></header>
-<!--            <section th:replace="content/home" layout:fragment="content"></section>-->
-<!--            <section th:replace="content/result" layout:fragment="content"></section>-->
-            <section th:replace="content/detail" layout:fragment="content"></section>
+            <section layout:fragment="content"></section>
             <footer th:replace="fragment/footer :: footerFragment"></footer>
         </div>
     </body>

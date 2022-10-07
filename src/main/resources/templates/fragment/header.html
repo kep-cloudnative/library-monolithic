@@ -16,29 +16,9 @@
                 <label for="searchType">검색 유형 선택</label>
                 <input class="searchBox" id="searchText" type="text" size="30">
                 <label for="searchText">도서명 입력</label>
-                <button class="searchButton" id="searchButton" type="button">도서 검색</button>
+                <button type="button" id="searchButton" class="searchButton"
+                        th:onclick="|location.href='@{/result}'|">도서 검색</button>
             </nav>
-<!--            <script>-->
-<!--                $("#searchBtn").click( function(){-->
-<!--                    let searchType = $("#searchType").val();-->
-<!--                    let searchData = $("#searchText").val();-->
-<!--                    console.log("searchBtn.click" + "/" + searchType + "/" + searchData);-->
-<!--                    $.ajax({-->
-<!--                        url: "/result/" + searchType + "/" + searchData,-->
-<!--                        method: "GET",-->
-<!--                        beforeSend: function(xhr) {-->
-<!--                            xhr.setRequestHeader("jwt_token", $.cookie("jwt_token"));-->
-<!--                        },-->
-<!--                        success: function(data, testStatus, request) {-->
-<!--                            console.log("data : " + data);-->
-<!--                            $("#result").html(data);-->
-<!--                        },-->
-<!--                        error: function(data, textStatus, error){-->
-<!--                            console.log("error:" + textStatus +  "/" + error);-->
-<!--                        }-->
-<!--                    });-->
-<!--                })-->
-<!--            </script>-->
         </header>
     </body>
 

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.reactive.result.view.RedirectView;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -35,16 +36,34 @@ public class MainViewController {
     model.addAttribute("searchTypes", searchTypes);
     model.addAttribute("category", managementService.getCategoryList());
 
-        /*
-        if(null == session.getAttribute("authenticated")) {
-            System.out.print("authenticated");
-            session.setAttribute("authenticated", "false");
-        }else {
-            System.out.println("authenticated:" + session.getAttribute("authenticated") );
-        }
-        */
+//    if (null == session.getAttribute("authenticated")) {
+//        System.out.print("authenticated");
+//        session.setAttribute("authenticated", "false");
+//    } else {
+//        System.out.println("authenticated:" + session.getAttribute("authenticated") );
+//    }
 
-    return "index";
+    return "content/home";
+  }
+
+  @RequestMapping(value = "/result")
+  public String result(Model model, HttpSession session, @RequestHeader Map<String, Object> requestHeader) {
+
+    String[] searchTypes = {"도서명", "카테고리", "저자"};
+    model.addAttribute("searchTypes", searchTypes);
+    model.addAttribute("category", managementService.getCategoryList());
+
+    return "content/result";
+  }
+
+  @RequestMapping(value = "/detail")
+  public String detail(Model model, HttpSession session, @RequestHeader Map<String, Object> requestHeader) {
+
+    String[] searchTypes = {"도서명", "카테고리", "저자"};
+    model.addAttribute("searchTypes", searchTypes);
+    model.addAttribute("category", managementService.getCategoryList());
+
+    return "content/detail";
   }
 
   /*
@@ -79,6 +98,12 @@ public class MainViewController {
     model.addAttribute("searchTypes", searchTypes);
     model.addAttribute("category", managementService.getCategoryList());
     return "search";
+  }
+
+  @GetMapping(value = "/result/{searchType}/{searchData}")
+  public RedirectView reult(Model model, @PathVariable("searchType") String searchType, @PathVariable("searchData") String searchData) {
+    model.addAttribute("books", managementService.findBookList(searchType, searchData));
+    return new RedirectView("content/result");
   }
 
   @GetMapping(value = "/searchResult/{searchType}/{searchData}")
