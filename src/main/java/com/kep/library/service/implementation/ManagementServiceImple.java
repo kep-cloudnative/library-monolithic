@@ -11,6 +11,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.awt.print.Book;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -118,6 +119,17 @@ public class ManagementServiceImple implements ManagementService {
     ModelMapper modelMapper = new ModelMapper();
     List<BookDto> books = bookRepository
             .findByCategory(category)
+            .stream()
+            .map(book -> modelMapper.map(book, BookDto.class))
+            .collect(Collectors.toList());
+    return books;
+  }
+
+  @Override
+  public List<BookDto> findBookByRecommendedTrue() {
+    ModelMapper modelMapper = new ModelMapper();
+    List<BookDto> books = bookRepository
+            .findByRecommendedTrue()
             .stream()
             .map(book -> modelMapper.map(book, BookDto.class))
             .collect(Collectors.toList());

@@ -44,7 +44,10 @@ public class BookDto {
   @JsonProperty
   private int quantity;
 
+  @JsonProperty
+  private boolean recommended;
+
   public BookEntity toEntity() {
-    return new BookEntity(bookId, category, name, publishDate, company, writer, status, quantity);
+    return new BookEntity(bookId, category, name, publishDate, company, writer, status, quantity, recommended);
   }
 }

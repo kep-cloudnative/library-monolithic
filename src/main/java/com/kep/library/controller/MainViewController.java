@@ -35,6 +35,7 @@ public class MainViewController {
     String[] searchTypes = {"도서명", "카테고리", "저자"};
     model.addAttribute("searchTypes", searchTypes);
     model.addAttribute("category", managementService.getCategoryList());
+    model.addAttribute("books", managementService.findBookByRecommendedTrue());
 
 //    if (null == session.getAttribute("authenticated")) {
 //        System.out.print("authenticated");

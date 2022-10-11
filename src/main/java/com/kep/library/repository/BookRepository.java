@@ -22,4 +22,5 @@ public interface BookRepository extends CrudRepository<BookEntity, String>, JpaR
 
   List<BookEntity> findByWriter(String writer);
 
+  List<BookEntity> findByRecommendedTrue();
 }
