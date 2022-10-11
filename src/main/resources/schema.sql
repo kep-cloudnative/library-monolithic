@@ -3,6 +3,7 @@ drop table if exists manager;
 drop table if exists book;
 drop table if exists category;
 drop table if exists status;
+drop table if exists book_Cover;
 
 create table if not exists manager(
     librarian_id varchar(60),
@@ -34,9 +35,6 @@ create table if not exists book (
     status      VARCHAR(5),
     quantity    INT,
     category    VARCHAR(50),
-    recommended BOOLEAN
+    recommended BOOLEAN,
+    image_url   VARCHAR(100)
 );
-
-
-
-
