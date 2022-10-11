@@ -2,6 +2,8 @@ package com.kep.library.controller;
 
 import com.kep.library.dto.BookDto;
 import com.kep.library.service.ManagementService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +20,8 @@ import java.util.Map;
 
 @Controller
 public class MainViewController {
+
+  private static final Logger logger = LoggerFactory.getLogger(MainViewController.class);
   ManagementService managementService;
 
   public MainViewController() {
@@ -31,16 +35,16 @@ public class MainViewController {
 
   @RequestMapping(value = "/")
   public String index(Model model, HttpSession session, @RequestHeader Map<String, Object> requestHeader) {
-
+    logger.info("Enter the user to search page.");
     String[] searchTypes = {"도서명", "카테고리", "저자"};
     model.addAttribute("searchTypes", searchTypes);
     model.addAttribute("category", managementService.getCategoryList());
     model.addAttribute("books", managementService.findBookByRecommendedTrue());
 //    if (null == session.getAttribute("authenticated")) {
-//        System.out.print("authenticated");
+//        logger.info("This user is not authenticated.", session.getAttribute("authenticated") );
 //        session.setAttribute("authenticated", "false");
 //    } else {
-//        System.out.println("authenticated:" + session.getAttribute("authenticated") );
+//        logger.info("This user ({}) is authenticated.", session.getAttribute("authenticated") );
 //    }
     return "content/home";
   }
@@ -73,12 +77,12 @@ public class MainViewController {
 
 //    @RequestMapping("/login")
 //    public String redirectLoginServer(Model model) {
-//        URI redirectUri = new URI("http://localhost:8082/login");
+//        URI redirectUri = new URI("http://localhost/login");
 //        HttpHeaders httpHeaders = new HttpHeaders();
 //        httpHeaders.setLocation(redirectUri);
 //        return new ResponseEntity<>(httpHeaders, HttpStatus.SEE_OTHER);
 //        return "login";
-//        return "redirect:http://localhost:8081/login";
+//        return "redirect:http://localhost/login";
 //    }
 
   @RequestMapping("/logout")

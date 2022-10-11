@@ -46,10 +46,10 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
     properties:
       hibernate:
-        show_sql: true
-        use_sql_comments: true
-        format_sql: true
-    show-sql: true
+        show_sql: false
+        use_sql_comments: false
+        format_sql: false
+    show-sql: false
     hibernate:
       ddl-auto: none
 
