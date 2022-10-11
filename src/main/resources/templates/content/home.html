@@ -10,7 +10,7 @@
                 <article class="item" th:each="book : ${books}">
                     <div class="card">
                         <div class="bookCover">
-                            <a href="detail.html" th:href="@{/detail}">
+                            <a href="detail.html" th:href="@{'/detail/' + ${book.bookId}}">
                                 <img alt="" src="" width="100px" height="150px">
                             </a>
                         </div>

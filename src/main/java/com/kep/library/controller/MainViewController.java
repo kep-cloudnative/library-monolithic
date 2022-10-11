@@ -57,12 +57,13 @@ public class MainViewController {
     return "content/result";
   }
 
-  @RequestMapping(value = "/detail")
-  public String detail(Model model, HttpSession session, @RequestHeader Map<String, Object> requestHeader) {
+  @RequestMapping(value = "/detail/{bookId}")
+  public String detail(Model model, HttpSession session, @PathVariable("bookId") String bookId) {
 
     String[] searchTypes = {"도서명", "카테고리", "저자"};
     model.addAttribute("searchTypes", searchTypes);
     model.addAttribute("category", managementService.getCategoryList());
+    model.addAttribute("book", managementService.findBookDetail(bookId));
 
     return "content/detail";
   }
