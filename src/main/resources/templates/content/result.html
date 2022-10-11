@@ -27,29 +27,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>컴퓨터_1_1</td>
-                            <td>DOMAIN DRIVEN DESIGN</td>
-                            <td>위키북스</td>
-                            <td>2000-01-01</td>
-                            <td>에릭에반스</td>
-                            <td>최초등록</td>
-                        </tr>
-                        <tr>
-                            <td>인문_1_1</td>
-                            <td>슬기로운KEP생활</td>
-                            <td>KEP</td>
-                            <td>2000-01-01</td>
-                            <td>andrew</td>
-                            <td>최초등록</td>
-                        </tr>
-                        <tr>
-                            <td>만화_1_1</td>
-                            <td>클라우드정복</td>
-                            <td>KEP</td>
-                            <td>2000-01-01</td>
-                            <td>언이</td>
-                            <td>최초등록</td>
+                        <tr th:each="book : ${books}">
+                            <td th:text="${book.bookId}">도서코드</td>
+                            <td>
+                                <a th:text="${book.name}" th:href="@{'/detail/' + ${book.bookId}}">도서명</a>
+                            </td>
+                            <td th:text="${book.company}">출판사</td>
+                            <td th:text="${#dates.format(book.publishDate, 'yyyy-MM-dd')}">출판일</td>
+                            <td th:text="${book.writer}">저자</td>
+                            <td th:text="${book.status}">상태</td>
                         </tr>
                     </tbody>
                 </table>

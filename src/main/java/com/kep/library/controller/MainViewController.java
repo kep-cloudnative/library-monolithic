@@ -47,12 +47,13 @@ public class MainViewController {
     return "content/home";
   }
 
-  @RequestMapping(value = "/result")
-  public String result(Model model, HttpSession session, @RequestHeader Map<String, Object> requestHeader) {
+  @RequestMapping(value = "/result/{searchType}/{searchData}")
+  public String result(Model model, HttpSession session, @PathVariable("searchType") String searchType, @PathVariable("searchData") String searchData) {
 
     String[] searchTypes = {"도서명", "카테고리", "저자"};
     model.addAttribute("searchTypes", searchTypes);
     model.addAttribute("category", managementService.getCategoryList());
+    model.addAttribute("books", managementService.findBookList(searchType, searchData));
 
     return "content/result";
   }
@@ -96,23 +97,17 @@ public class MainViewController {
 
   @GetMapping(value = "/search")
   public String search(Model model) {
+
     String[] searchTypes = {"도서명", "카테고리", "저자"};
     model.addAttribute("searchTypes", searchTypes);
     model.addAttribute("category", managementService.getCategoryList());
     return "search";
   }
 
-  @GetMapping(value = "/result/{searchType}/{searchData}")
-  public RedirectView reult(Model model, @PathVariable("searchType") String searchType, @PathVariable("searchData") String searchData) {
-    model.addAttribute("books", managementService.findBookList(searchType, searchData));
-    return new RedirectView("content/result");
-  }
-
   @GetMapping(value = "/searchResult/{searchType}/{searchData}")
   public String searchResult(Model model, @PathVariable("searchType") String searchType, @PathVariable("searchData") String searchData) {
 
     model.addAttribute("books", managementService.findBookList(searchType, searchData));
-
     return "searchResult";
   }
 

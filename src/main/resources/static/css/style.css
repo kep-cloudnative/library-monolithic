@@ -117,6 +117,14 @@ tr > td {
     text-align: left;
 }
 
+td > a {
+    color: #194BDC;
+}
+
+td > a:hover {
+    text-decoration: underline;
+}
+
 .wrap {
     position: relative;
     min-height: 100%;
