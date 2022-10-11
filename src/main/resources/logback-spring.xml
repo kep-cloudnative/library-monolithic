@@ -24,9 +24,8 @@
     </appender>
 
     <logger name="org.springframework" level="info"/>
-    <logger name="org.hibernate" level="debug"/>
+    <logger name="org.hibernate" level="info"/>
     <root level="info">
         <appender-ref ref="console"/>
-        <appender-ref ref="FILE"/>
     </root>
 </configuration>
