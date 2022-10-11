@@ -1,13 +1,13 @@
 
 INSERT INTO book (book_Id, name, publish_Date, company, writer, status, quantity, category, recommended, image_Url)
 VALUES
-    ('컴퓨터_1_1', 'DOMAIN DRIVEN DESIGN', NOW(), '위키북스', '에릭에반스', '최초등록', 5, '컴퓨터', true, '/image/1_1.png')
-   ,('인문_1_1', '슬기로운KEP생활',           NOW(), 'KEP', 'andrew', '최초등록', 5, '인문', true, '/image/2_2.png')
-   ,('만화_1_1', '클라우드정복 1',              NOW(), 'KiC', '언이', '최초등록', 5, '만화', true, '/image/3_3.png')
-   ,('만화_1_2', '클라우드정복 2',              NOW(), 'KiC', '언이', '최초등록', 5, '만화', true, '/image/4_4.png')
-   ,('만화_1_3', '클라우드정복 3',              NOW(), 'KiC', '언이', '최초등록', 5, '만화', true, '/image/5_5.png')
-   ,('만화_1_4', '클라우드정복 4',              NOW(), 'KiC', '언이', '최초등록', 5, '만화', true, '/image/6_6.png')
-   ,('만화_1_5', '클라우드정복 5',              NOW(), 'KiC', '언이', '최초등록', 5, '만화', true, '/image/7_7.png');
+    ('컴퓨터-1-1',  'DOMAIN DRIVEN DESIGN',  NOW(), '위키북스',       '에릭에반스',              '최초등록', 5, '컴퓨터', true, '/images/DDD.jpeg')
+   ,('컴퓨터-1-2', 'Doing Agile Right',      NOW(), 'Harvard Biz', 'Drarrell Rigby 외 2',   '최초등록', 5, '컴퓨터', true, '/images/Agile.jpeg')
+   ,('컴퓨터-1-3', 'Cloud Native',           NOW(), 'OREILLY',     'Boris Scholl 외 2',     '최초등록', 5, '컴퓨터', true, '/images/cloudNative.jpeg')
+   ,('컴퓨터-1-4', 'Event Storming',         NOW(), 'leanpub',      'Alberto Brandolini',  '최초등록', 5, '컴퓨터', true, '/images/eventStorming.jpg')
+   ,('인문-1-1',   '슬기로운KEP생활',           NOW(), 'KEP',          'andrew',              '최초등록', 5, '인문',   true, '/images/kep_life.jpg')
+   ,('인문-1-2',   '라이언, 내 곁에 있어줘',      NOW(), 'arte',         '전승환',                '최초등록', 5, '컴퓨터', true, '/images/rian_sideme.webp');
+
 
 INSERT INTO category (id, name)
 VALUES
@@ -18,7 +18,7 @@ VALUES
 
 INSERT INTO manager (librarian_id, name, gender, birth_day, address, phone, role, password)
  VALUES
-    ('jackie.choi', '제키', '남', '1977-08-04', '서울어디', '01012345678', 'MANAGER', '1234')
-   ,('emma.me', '엠마', '여', '1983-01-01', '경기어디', '01023456789', 'MANAGER', '1234')
-   ,('harvey.c', '한별', '남', '1987-12-23', '한국어디', '01034567890', 'MANAGER', '1234');
+    ('jackie.choi', '제키', '남', '1977-08-04', '서울-어디', '010-1234-5678', 'MANAGER', '1234')
+   ,('emma.me',     '엠마', '여', '1983-01-01', '경기-어디', '010-2345-6789', 'MANAGER', '1234')
+   ,('harvey.c',    '하비', '남', '1987-12-23', '한국-어디', '010-3456-7890', 'MANAGER', '1234');
 
