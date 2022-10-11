@@ -86,8 +86,13 @@ spring:
     prefix: "classpath:/templates/"
     check-template-location: true
     suffix=: ".html"
-    mode: "HTML5"
+    mode: "HTML"
     cache: false
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: false
 
 springfox:
   documentation:

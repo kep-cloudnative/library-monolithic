@@ -29,4 +29,6 @@ public interface ManagementService {
   List<CategoryDto> getCategoryList();
 
   List<BookDto> findBookListByCategory(String category);
+
+  List<BookDto> findBookByRecommendedTrue();
 }

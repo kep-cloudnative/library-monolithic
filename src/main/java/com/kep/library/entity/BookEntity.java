@@ -45,4 +45,6 @@ public class BookEntity implements Serializable {
   @JsonProperty
   private int quantity;
 
+  @JsonProperty
+  private boolean recommended;
 }

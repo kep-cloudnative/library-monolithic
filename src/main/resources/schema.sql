@@ -33,7 +33,8 @@ create table if not exists book (
     writer      VARCHAR(20),
     status      VARCHAR(5),
     quantity    INT,
-    category    VARCHAR(50)
+    category    VARCHAR(50),
+    recommended BOOLEAN
 );
 
 

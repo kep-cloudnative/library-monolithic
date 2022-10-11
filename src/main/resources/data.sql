@@ -1,16 +1,20 @@
 
-INSERT INTO book (book_Id, name, publish_Date, company, writer, status, quantity, category)
+INSERT INTO book (book_Id, name, publish_Date, company, writer, status, quantity, category, recommended)
 VALUES
-    ('컴퓨터_1_1', 'DOMAIN DRIVEN DESIGN', NOW(), '위키북스', '에릭에반스', '최초등록', 5, '컴퓨터')
-   ,('인문_1_1', '슬기로운KEP생활',           NOW(), 'KEP', 'andrew', '최초등록', 5, '인문')
-   ,('만화_1_1', '클라우드정복',              NOW(), 'KiC', '언이', '최초등록', 5, '만화');
+    ('컴퓨터_1_1', 'DOMAIN DRIVEN DESIGN', NOW(), '위키북스', '에릭에반스', '최초등록', 5, '컴퓨터', true)
+   ,('인문_1_1', '슬기로운KEP생활',           NOW(), 'KEP', 'andrew', '최초등록', 5, '인문', true)
+   ,('만화_1_1', '클라우드정복 1',              NOW(), 'KiC', '언이', '최초등록', 5, '만화', true)
+   ,('만화_1_2', '클라우드정복 2',              NOW(), 'KiC', '언이', '최초등록', 5, '만화', true)
+   ,('만화_1_3', '클라우드정복 3',              NOW(), 'KiC', '언이', '최초등록', 5, '만화', false)
+   ,('만화_1_4', '클라우드정복 4',              NOW(), 'KiC', '언이', '최초등록', 5, '만화', false)
+   ,('만화_1_5', '클라우드정복 5',              NOW(), 'KiC', '언이', '최초등록', 5, '만화', false);
 
 INSERT INTO category (id, name)
 VALUES
-    (10000001, '컴퓨터' )
-   ,(20000001, '과학' )
-   ,(30000001, '인문' )
-   ,(40000001, '만화' );
+    (10000001, '컴퓨터')
+   ,(20000001, '과학')
+   ,(30000001, '인문')
+   ,(40000001, '만화');
 
 INSERT INTO manager (librarian_id, name, gender, birth_day, address, phone, role, password)
  VALUES

@@ -153,5 +153,4 @@ public class ManagementController {
     List<BookDto> books = managementService.findBookListByCategory(name);
     return new ResponseEntity<List<BookDto>>(books, HttpStatus.OK);
   }
-
 }
