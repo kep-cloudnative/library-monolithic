@@ -12,6 +12,9 @@ spring:
   config:
     activate:
       on-profile: "localms"
+logging:
+  level:
+    root: info
 ---
 spring:
   config:
