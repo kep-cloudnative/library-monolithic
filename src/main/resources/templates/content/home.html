@@ -11,7 +11,7 @@
                     <div class="card">
                         <div class="bookCover">
                             <a href="detail.html" th:href="@{'/detail/' + ${book.bookId}}">
-                                <img alt="" src="" width="100px" height="150px">
+                                <img alt="이미지" th:src="${book.imageUrl}" width="100px" height="150px">
                             </a>
                         </div>
                         <div class="bookDesc">

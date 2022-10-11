@@ -47,4 +47,7 @@ public class BookEntity implements Serializable {
 
   @JsonProperty
   private boolean recommended;
+
+  @JsonProperty
+  private String imageUrl;
 }
