@@ -70,7 +70,7 @@ public class ManagementServiceImple implements ManagementService {
     List<BookDto> books = null;
     ModelMapper modelMapper = new ModelMapper();
     if ("도서명".equals(searchType))
-      books = bookRepository.findByName(searchData)
+      books = bookRepository.findByNameContainsIgnoreCase(searchData)
               .stream()
               .map(book -> modelMapper.map(book, BookDto.class))
               .collect(Collectors.toList());

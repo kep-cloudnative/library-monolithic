@@ -20,6 +20,8 @@ public interface BookRepository extends CrudRepository<BookEntity, String>, JpaR
 
   List<BookEntity> findByName(String name);
 
+  List<BookEntity> findByNameContainsIgnoreCase(String name);
+
   List<BookEntity> findByWriter(String writer);
 
   List<BookEntity> findByRecommendedTrue();

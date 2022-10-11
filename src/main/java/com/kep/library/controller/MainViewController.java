@@ -36,54 +36,53 @@ public class MainViewController {
     model.addAttribute("searchTypes", searchTypes);
     model.addAttribute("category", managementService.getCategoryList());
     model.addAttribute("books", managementService.findBookByRecommendedTrue());
-
 //    if (null == session.getAttribute("authenticated")) {
 //        System.out.print("authenticated");
 //        session.setAttribute("authenticated", "false");
 //    } else {
 //        System.out.println("authenticated:" + session.getAttribute("authenticated") );
 //    }
-
     return "content/home";
+  }
+
+  @RequestMapping(value = "/result")
+  public String result(Model model, HttpSession session) {
+    String[] searchTypes = {"도서명", "카테고리", "저자"};
+    model.addAttribute("searchTypes", searchTypes);
+    model.addAttribute("books", managementService.findAll());
+    return "content/result";
   }
 
   @RequestMapping(value = "/result/{searchType}/{searchData}")
   public String result(Model model, HttpSession session, @PathVariable("searchType") String searchType, @PathVariable("searchData") String searchData) {
-
     String[] searchTypes = {"도서명", "카테고리", "저자"};
     model.addAttribute("searchTypes", searchTypes);
     model.addAttribute("category", managementService.getCategoryList());
     model.addAttribute("books", managementService.findBookList(searchType, searchData));
-
     return "content/result";
   }
 
   @RequestMapping(value = "/detail/{bookId}")
   public String detail(Model model, HttpSession session, @PathVariable("bookId") String bookId) {
-
     String[] searchTypes = {"도서명", "카테고리", "저자"};
     model.addAttribute("searchTypes", searchTypes);
     model.addAttribute("category", managementService.getCategoryList());
     model.addAttribute("book", managementService.findBookDetail(bookId));
-
     return "content/detail";
   }
 
-  /*
-      @RequestMapping("/login")
-      public String redirectLoginServer(Model model) {
-  //        URI redirectUri = new URI("http://localhost:8082/login");
-  //        HttpHeaders httpHeaders = new HttpHeaders();
-  //        httpHeaders.setLocation(redirectUri);
-  //        return new ResponseEntity<>(httpHeaders, HttpStatus.SEE_OTHER);
+//    @RequestMapping("/login")
+//    public String redirectLoginServer(Model model) {
+//        URI redirectUri = new URI("http://localhost:8082/login");
+//        HttpHeaders httpHeaders = new HttpHeaders();
+//        httpHeaders.setLocation(redirectUri);
+//        return new ResponseEntity<>(httpHeaders, HttpStatus.SEE_OTHER);
+//        return "login";
+//        return "redirect:http://localhost:8081/login";
+//    }
 
-          return "login";
-          //return "redirect:http://localhost:8081/login";
-      }
-  */
   @RequestMapping("/logout")
   public String logout(Model model, HttpSession session, HttpServletResponse response) {
-
     if (null != session.getAttribute("authenticated")) {
       session.setAttribute("authenticated", "false");
       Cookie logoutCookie = new Cookie("jwt_token", null);
@@ -91,13 +90,11 @@ public class MainViewController {
       logoutCookie.setPath("/");         // 모든 경로에서 삭제 됬음을 알린다.
       response.addCookie(logoutCookie);
     }
-
     return "index";
   }
 
   @GetMapping(value = "/search")
   public String search(Model model) {
-
     String[] searchTypes = {"도서명", "카테고리", "저자"};
     model.addAttribute("searchTypes", searchTypes);
     model.addAttribute("category", managementService.getCategoryList());
@@ -106,7 +103,6 @@ public class MainViewController {
 
   @GetMapping(value = "/searchResult/{searchType}/{searchData}")
   public String searchResult(Model model, @PathVariable("searchType") String searchType, @PathVariable("searchData") String searchData) {
-
     model.addAttribute("books", managementService.findBookList(searchType, searchData));
     return "searchResult";
   }
@@ -120,7 +116,6 @@ public class MainViewController {
 
   @GetMapping(value = "/home")
   public String home(Model model) {
-
     return "home";
   }
 
@@ -128,5 +123,4 @@ public class MainViewController {
   public String header() {
     return "fragment/header";
   }
-
 }
