@@ -3,6 +3,7 @@ package com.kep.library.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.kep.library.entity.BookEntity;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -13,8 +14,9 @@ import java.util.Date;
 
 @Component
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class BookDto {
 
   @Id
