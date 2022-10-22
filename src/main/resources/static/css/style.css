@@ -17,25 +17,30 @@ header {
     position: sticky;
     top: 0;
     padding-top: 1px;
-    background-color: #01092B;
-    color: #FFFFFF;
+    background-color: #FFE600;
+    color: #000000;
     margin-top: 0;
     border-top: 0;
 
 }
 
 header > nav {
-    height: 70px;
+    height: 120px;
     line-height: 70px;
-    background-color: #eeefee;
-    color: #eeefee;
+    background-color: #FFE600;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 nav > img {
+    width: 130px;
+    height: 130px;
     vertical-align: middle;
+    object-position: bottom;
+    position: absolute;
+    bottom: 0;
+    left: 27%;
 }
 
 footer {
@@ -43,21 +48,15 @@ footer {
     height: 20px;
     position: absolute;
     bottom: 0;
-    padding-block: 10px;
-    margin-top: 20px;
+    padding-block: 20px;
     align-items: center;
     text-align: center;
-    background-color: #000;
-    color: #fff;
-    line-height: 20px;
     white-space: nowrap;
-    /*
-    line-height: 40px;
-    font-size: 17px;
-    font-weight: 500;
-    white-space: nowrap;
-
-     */
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #949494;
 }
 
 section {
@@ -65,10 +64,6 @@ section {
     margin: 0 auto;
     padding-top: 20px;
     padding-bottom: 80px;
-}
-
-h2 {
-    margin-left: 20px;
 }
 
 a {
@@ -84,6 +79,7 @@ table {
     display: table;
     width: 100%;
     margin-top: 10px;
+    padding-left: 20px;
     border-spacing: 0;
     border-collapse: separate;
     text-indent: 5px;
@@ -91,7 +87,6 @@ table {
 
 thead {
     display: table-header-group;
-    background: rgba(0,0,0,0.03);
     vertical-align: middle;
 }
 
@@ -107,32 +102,61 @@ tr {
 }
 
 thead > tr {
-    height: 56px;
+    height: 40px;
 }
 
 tbody > tr {
-    height: 54px;
+    height: 70px;
+}
+
+tbody > tr:hover {
+    background: #FBF9FB;
 }
 
 tr > th {
     display: table-cell;
     padding: 0;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-    color: rgb(34, 34, 34);
+    border-bottom: 1px solid #F1F2F6;
     text-align: start;
     user-select: none;
+
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 22px;
+    color: #212121;
 }
 
 tr > td {
     display: table-cell;
     padding: 0;
-    line-height: 1.43;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
     text-align: left;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #212121;
+}
+
+tr > td:nth-child(1) {
+    display: table-cell;
+    padding: 0;
+    text-align: center;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #212121;
 }
 
 td > a {
-    color: #194BDC;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #2257EB;
 }
 
 td > a:hover {
@@ -188,7 +212,7 @@ td > a:hover {
 .detailCover {
     flex-basis: 30%;
     margin-top: 20px;
-    text-align: center;
+    text-align: left;
 }
 
 .detailDesc {
@@ -209,37 +233,48 @@ td > a:hover {
     margin-left: 10px;
 }
 
-.searchBox, .searchSelect {
-    height: 30px;
+.searchBox {
     padding-left: 12px;
-    background-color: #F8F9FB;
-    outline: solid 1px #D6DBE4;
-    border-radius: 4px;
     border: 0;
-    font-size: 12px;
+    font-size: 14px;
+    width: 270px;
+    height: 43px;
+    border-radius: 6px;
+    margin-inline: 8px;
 }
 
 .searchSelect {
-    width: 80px;
-    height: 32px;
-    margin-inline: 5px;
-}
-
-.searchBox:focus {
-    background-color: #FFFFFF;
-    outline: solid 1px #194BDC;
+    padding-left: 12px;
+    border: 0;
+    font-size: 14px;
+    width: 90px;
+    height: 45px;
+    border-radius: 6px;
 }
 
 .searchButton {
-    height: 32px;
+    height: 44px;
     border: 0;
-    border-radius: 4px;
-    background-color: #FFDB00;
-    font-size: 12px;
-    padding-inline: 12px;
-    margin-inline: 5px;
+    padding-inline: 19px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    background: #000000;
+    border-radius: 6px;
+    color: #FFFFFF;
 }
 
-.searchButton:hover {
-    background-color: #EBC900;
+.header {
+    background-color: #FFE600;
+    text-align: center;
+    padding-top: 34px;
+}
+
+.header > a {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.4px;
 }

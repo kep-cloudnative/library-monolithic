@@ -3,11 +3,11 @@
 
     <body>
         <header th:fragment="headerFragment">
-            <h2>
-                <a href="/">KEP 도서관</a>
-            </h2>
+            <div class="header">
+                <a href="/">kakaoenterprise 도서관</a>
+            </div>
             <nav>
-                <img alt="라이언" src="/images/ryan-animation_ver02.gif" width="70px" height="70px">
+                <img alt="라이언" src="/images/ryan_img.png">
                 <select class="searchSelect" id="searchType" th:object="${searchTypes}">
                     <option th:each="searchType : ${searchTypes}"
                             th:value="${searchType}"
