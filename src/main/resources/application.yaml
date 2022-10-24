@@ -63,7 +63,7 @@ spring:
   datasource:
     hikari:
       driver-class-name: "com.mysql.jdbc.Driver"
-      jdbc-url: ${mysqlUrl}
+      jdbc-url: jdbc:mysql://${endpointIp}:3306/librarydb?createDatabaseIfNotExist=true
       username: ${mysqlUser}
       password: ${mysqlPass}
     initialization-mode: always
