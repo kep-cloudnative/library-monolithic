@@ -63,9 +63,9 @@ spring:
   datasource:
     hikari:
       driver-class-name: "com.mysql.jdbc.Driver"
-      jdbc-url: "jdbc:mysql://${MYSQL_HOST:localhost}:3306/management?createDatabaseIfNotExist=true"
-      username: sa
-      password: 1234
+      jdbc-url: jdbc:mysql://${MYSQL_HOST}:3306/librarydb?createDatabaseIfNotExist=true
+      username: ${DB_USERNAME}
+      password: ${DB_PASSWORD}
     initialization-mode: always
     schema: classpath*:/schema.sql
     data: classpath*:/data.sql
