@@ -1,48 +1,38 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<nav id="header" class="navbar navbar-inverse navbar-fixed-top" th:fragment="headerFragment">
-    <script>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
-        var loginView = function(){
-            $.ajax({
-                crossOrigin: true,
-                url: "/login",
-                success: function(data){
-                    console.log("load login form");
-                    $("#contents").html(data);
-                }
-            })
-        }
+    <body>
+        <header th:fragment="headerFragment">
+            <div class="header">
+                <a href="/">kakaoenterprise 도서관</a>
+            </div>
+            <nav>
+                <img alt="라이언" src="/images/ryan_img.png">
+                <select class="searchSelect" id="searchType" th:object="${searchTypes}">
+                    <option th:each="searchType : ${searchTypes}"
+                            th:value="${searchType}"
+                            th:text="${searchType}"></option>
+                </select>
+                <label for="searchType">검색 유형 선택</label>
+                <input type="text" id="searchText" class="searchBox" size="30">
+                <label for="searchText">도서명 입력</label>
+                <button type="button" id="searchButton" class="searchButton" style="cursor:pointer">도서 검색</button>
+            </nav>
+            <script>
+                $('#searchButton').click(function() {
+                    const searchType = $('#searchType').val();
+                    const searchData = $('#searchText').val();
+                    let url;
 
-    </script>
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#" >Library Management System</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li th:if="${session.authenticated} == 'false'">
-                    <a href="#" th:href="@{/login}" onclick="loginView();return false;">
-                        <span class="glyphicon-log-in" aria-hidden="true"></span>&nbsp;Login
-                    </a>
-                </li>
-                <li th:if="${session.authenticated} == 'true'">
-                    <a href="/logout" th:href="@{/logout}">
-                        <span class="glyphicon-log-out" aria-hidden="true"></span>&nbsp;Logout
-                    </a>
-                    <!--                    <a href="/logout" th:href="@{#}" onclick="$('#form').submit();">-->
-<!--                        <span class="glyphicon-log-out" aria-hidden="true"></span>&nbsp;Logout-->
-<!--                    </a>-->
-<!--                    <form style="visibility: hidden" id="form" method="post" th:action="@{/logout}"></form>-->
-                </li>
-            </ul>
-        </div>
-        <!--/.nav-collapse -->
-    </div>
-</nav>
+                    if (searchData) {
+                        url = '/result/' + searchType + '/' + searchData;
+                    } else {
+                        url = '/result';
+                    }
+                    location.href = url;
+                })
+            </script>
+        </header>
+    </body>
+
 </html>

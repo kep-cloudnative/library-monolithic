@@ -1,20 +1,27 @@
 
-INSERT INTO book (book_Id, name, publish_Date, company, writer, status, quantity, category)
+INSERT INTO book (book_Id, name, publish_Date, company, writer, status, quantity, category, recommended, image_Url)
 VALUES
-    ('컴퓨터_1_1', 'DOMAIN DRIVEN DESIGN', NOW(), '위키북스', '에릭에반스', '최초등록', 5, '컴퓨터')
-   ,('인문_1_1', '슬기로운KEP생활',           NOW(), 'KEP', 'andrew', '최초등록', 5, '인문')
-   ,('만화_1_1', '클라우드정복',              NOW(), 'KiC', '언이', '최초등록', 5, '만화');
+    ('COM.01.001', 'DOMAIN DRIVEN DESIGN',  NOW(), '위키북스',       '에릭에반스',              '최초등록', 5, '컴퓨터', true, '/images/DDD.jpeg')
+   ,('COM.01.002', 'Doing Agile Right',     NOW(), 'Harvard Biz', 'Drarrell Rigby 외 2',   '최초등록', 5, '컴퓨터', true, '/images/Agile.jpeg')
+   ,('COM.01.003', 'Cloud Native',          NOW(), 'OREILLY',     'Boris Scholl 외 2',     '최초등록', 5, '컴퓨터', true, '/images/cloudNative.jpeg')
+   ,('COM.01.004', 'Event Storming',        NOW(), 'leanpub',      'Alberto Brandolini',  '최초등록', 5, '컴퓨터', true, '/images/eventStorming.jpg')
+   ,('HUM.01.001', '슬기로운KEP생활',           NOW(), 'KEP',          'andrew',              '최초등록', 5, '인문',   true, '/images/kep_life.jpg')
+   ,('HUM.01.002', '라이언, 내 곁에 있어줘',      NOW(), 'arte',         '전승환',                '최초등록', 5, '컴퓨터', true, '/images/rian_sideme.webp');
+
 
 INSERT INTO category (id, name)
 VALUES
-    (10000001, '컴퓨터' )
-   ,(20000001, '과학' )
-   ,(30000001, '인문' )
-   ,(40000001, '만화' );
+    (10000001, '컴퓨터')
+   ,(20000001, '과학')
+   ,(30000001, '인문')
+   ,(40000001, '만화');
 
 INSERT INTO manager (librarian_id, name, gender, birth_day, address, phone, role, password)
  VALUES
-    ('jackie.choi', '제키', '남', '1977-08-04', '서울어디', '01012345678', 'MANAGER', '1234')
-   ,('emma.me', '엠마', '여', '1983-01-01', '경기어디', '01023456789', 'MANAGER', '1234')
-   ,('harvey.c', '한별', '남', '1987-12-23', '한국어디', '01034567890', 'MANAGER', '1234');
+    ('jackie.choi', '최제키', '남', '1977-01-01',  '서울-어디', '010-1234-5678', 'MANAGER', '1234')
+   ,('emma.me',     '이엠마', '여', '1983-01-01',  '경기-어디', '010-2345-6789', 'MANAGER', '1234')
+   ,('harvey.c',    '조하비', '남', '1987-03-23',  '한국-어디', '010-3456-7890', 'MANAGER', '1234')
+   ,('manager01',   '김매니저', '여', '2001-01-12', '한국-어디', '010-4567-7891', 'MANAGER', '1234')
+   ,('user01',      '박사용자', '여', '2010-02-21', '한국-어디', '010-5678-9012', 'USER',    '1234')
+   ,('user02',      '석사용자', '남', '2011-10-06', '한국-어디', '010-6789-0123', 'USER',    '1234');
 

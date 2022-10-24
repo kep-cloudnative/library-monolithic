@@ -2,6 +2,8 @@ package com.kep.library.controller;
 
 import com.kep.library.dto.ManagerDto;
 import com.kep.library.service.AccountService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.RequestEntity;
 import org.springframework.stereotype.Controller;
@@ -16,12 +18,15 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class AccountViewController {
+
+  private static final Logger logger = LoggerFactory.getLogger(AccountViewController.class);
   @Autowired
   AccountService accountService;
 
   @RequestMapping("/login")
   public String showLoginForm(RequestEntity requestEntity, Model model) {
-    System.out.println(requestEntity.getHeaders().get("referer"));
+    logger.info("referer is {}", requestEntity.getHeaders().get("referer"));
+
     model.addAttribute("reqUrl", requestEntity.getHeaders().get("referer"));
     model.addAttribute("manager", new ManagerDto(null, ""));
     return "login";
@@ -41,14 +46,16 @@ public class AccountViewController {
 
   @PostMapping(value = "/authenticate")
   public String login(ManagerDto manager, Model model) {
-    System.out.println("authenticate mapping !!!");
+
     if ("".equals(manager.getLibrarianId()) || "".equals(manager.getPassword())) {
+      logger.info("{} do not entered password.", manager.getLibrarianId());
       model.addAttribute("loginErr", "fail to login.");
       return "login";
     }
 
     String token = accountService.authentication(manager);
     if ("".equals(token)) {
+      logger.info("{}'s token is invalid.", manager.getLibrarianId());
       model.addAttribute("loginErr", "fail to login.");
       return "login";
     }
@@ -67,8 +74,7 @@ public class AccountViewController {
   /*
       @GetMapping(value = "/logout")
       public String logout(HttpSession session, SessionStatus sessionStatus) {
-          System.out.println("Logout mapping...");
-          // result what...
+          logger.info("{} is logout.", manager.getLibrarianId());
           sessionStatus.setComplete();
           session.setAttribute("authenticated", "false");
           return "redirect:/";

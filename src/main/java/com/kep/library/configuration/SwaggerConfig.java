@@ -23,7 +23,7 @@ public class SwaggerConfig {
     /**
      * RestAPI Swagger website's title
      */
-    private String title = "SAM Management REST API ";
+    private String title = "Library Project REST API ";
 
     @Bean
     public Docket apiV1(){
@@ -33,8 +33,9 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 //.groupName("")
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.kep.cnp.sam.management.restApiController"))
-                .paths(PathSelectors.ant("/api/v1.0/**"))
+                .apis(RequestHandlerSelectors.basePackage("com.kep.library.restApiController"))
+                .paths(PathSelectors.any())
+                //.paths(PathSelectors.ant("/api/v1.0/**"))
                 .build()
                 .pathMapping("/")
                 .useDefaultResponseMessages(false)

@@ -3,6 +3,7 @@ package com.kep.library.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.kep.library.entity.BookEntity;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -13,8 +14,9 @@ import java.util.Date;
 
 @Component
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class BookDto {
 
   @Id
@@ -44,7 +46,13 @@ public class BookDto {
   @JsonProperty
   private int quantity;
 
+  @JsonProperty
+  private boolean recommended;
+
+  @JsonProperty
+  private String imageUrl;
+
   public BookEntity toEntity() {
-    return new BookEntity(bookId, category, name, publishDate, company, writer, status, quantity);
+    return new BookEntity(bookId, category, name, publishDate, company, writer, status, quantity, recommended, imageUrl);
   }
 }
