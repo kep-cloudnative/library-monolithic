@@ -36,5 +36,5 @@ create table if not exists book (
     quantity    INT,
     category    VARCHAR(50),
     recommended BOOLEAN,
-    image_url   VARCHAR(100)
+    image_url   VARCHAR(1000)
 );
