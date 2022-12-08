@@ -69,6 +69,7 @@ spring:
     initialization-mode: always
     schema: classpath*:/schema.sql
     data: classpath*:/data.sql
+    continue-on-error: true
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect

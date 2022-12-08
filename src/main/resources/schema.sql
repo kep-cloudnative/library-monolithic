@@ -27,7 +27,7 @@ create table if not exists status(
 );
 
 create table if not exists book (
-    book_Id      VARCHAR(30),
+    book_Id      VARCHAR(30) primary key,
     name        VARCHAR(100),
     publish_Date DATE,
     company     VARCHAR(100),
